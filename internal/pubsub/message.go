@@ -148,11 +148,17 @@ func NewAckResult() *AckResult {
 }
 
 // SetAckResult sets the ack response and error for a ack result and closes
-// the Ready channel.
+// the Ready channel. Any call after the first for the same AckResult
+// is a no-op.
 func SetAckResult(r *AckResult, res AcknowledgeStatus, err error) {
-	r.res = res
-	r.err = err
-	close(r.ready)
+	select {
+	case <-r.Ready():
+		return
+	default:
+		r.res = res
+		r.err = err
+		close(r.ready)
+	}
 }
 
 // AckWithResult acknowledges a message in Pub/Sub and it will not be
