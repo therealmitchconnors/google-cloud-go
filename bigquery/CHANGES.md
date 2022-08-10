@@ -1,6 +1,13 @@
 # Changes
 
 
+## [1.37.1](https://github.com/googleapis/google-cloud-go/compare/bigquery/v1.37.0...bigquery/v1.37.1) (2022-08-10)
+
+
+### Bug Fixes
+
+* **bigquery/storage/managedwriter:** propagate calloptions to append ([#6488](https://github.com/googleapis/google-cloud-go/issues/6488)) ([c65f9da](https://github.com/googleapis/google-cloud-go/commit/c65f9dab8118295e49a7b863f59cb64ace4c2d5b))
+
 ## [1.37.0](https://github.com/googleapis/google-cloud-go/compare/bigquery/v1.36.0...bigquery/v1.37.0) (2022-08-04)
 
 
